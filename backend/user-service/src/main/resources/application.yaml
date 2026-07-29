@@ -15,7 +15,7 @@ spring:
     oauth2:
       resource-server:
         jwt:
-          issuer-uri: http://localhost:8088/realms/myrealm
+          issuer-uri: http://localhost:8080/realms/master
 
 eureka:
   client:
@@ -35,9 +35,9 @@ logging:
     org.hibernate.orm.jdbc.bind: TRACE
 
 keycloak:
-  server-url: http://localhost:8088
+  server-url: http://localhost:8080
   admin-realm: master
-  realm: myrealm
+  realm: master
   client-id: admin-cli
   username: admin
   password: admin

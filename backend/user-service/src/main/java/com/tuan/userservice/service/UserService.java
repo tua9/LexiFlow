@@ -124,7 +124,7 @@ public class UserService {
 
     private UserResponse enrichWithKeycloak(UserResponse userResponse) {
         UserRepresentation kcUser = getKeycloakUser(userResponse.getUserId());
-        List<RoleRepresentation> realmRolesList = keycloak.realm("myrealm")
+        List<RoleRepresentation> realmRolesList = keycloak.realm("master")
                 .users()
                 .get(userResponse.getUserId())
                 .roles()
