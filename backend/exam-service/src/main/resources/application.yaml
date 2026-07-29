@@ -1,0 +1,17 @@
+server:
+  port: 1005
+
+spring:
+  application:
+    name: exam-service
+  datasource:
+    url: jdbc:postgresql://locahost:5432/exam-service
+    username: postgres
+    password: 22194
+    driver-class-name: org.postgresql.Driver
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
+

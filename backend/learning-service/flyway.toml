@@ -1,0 +1,7 @@
+[environments.default]
+url = "jdbc:postgresql://ep-late-math-az6048dt-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+user = "neondb_owner"
+password = "npg_lsA4k2JozKCt"
+
+[flyway]
+locations = ["filesystem:src/main/resources/db/migration"]

@@ -1,0 +1,13 @@
+server:
+  port: 1002
+spring:
+  application:
+    name: cloudinary-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+
+cloudinary:
+  url: cloudinary://787175684984725:BSQbdSDoWhKel9Mk11ac1noB0uc@tuan89-cloudinary
