@@ -9,6 +9,18 @@ spring:
 
   cloud:
     gateway:
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "https://lexiflow-fe.netlify.app/"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - PUT
+#              - DELETE
+#              - OPTIONS
+#            allowedHeaders: "*"
+#            allowCredentials: true
       server:
         webflux:
           routes:
@@ -36,3 +48,5 @@ spring:
       locator:
         enabled: true
         lower-case-service-id: true
+
+
