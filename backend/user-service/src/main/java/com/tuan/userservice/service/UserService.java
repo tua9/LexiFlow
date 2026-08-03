@@ -161,7 +161,7 @@ public class UserService {
     private UserRepresentation getKeycloakUser(String userId) {
         return userCache.computeIfAbsent(userId, id -> {
             try {
-                return keycloak.realm("myrealm").users().get(id).toRepresentation();
+                return keycloak.realm("master").users().get(id).toRepresentation();
             } catch (Exception e) {
                 return new UserRepresentation(); // fallback rỗng
             }
