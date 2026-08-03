@@ -2,6 +2,7 @@ package com.tuan.userservice.service;
 
 import com.tuan.userservice.client.CloudinaryClient;
 import com.tuan.userservice.client.LearningClient;
+import com.tuan.userservice.dto.UserCreateRequest;
 import com.tuan.userservice.dto.UserResponse;
 import com.tuan.userservice.dto.UserUpdateRequest;
 import com.tuan.userservice.mapper.UserMapper;
@@ -72,6 +73,20 @@ public class UserService {
 
     public List<TopicResponse> getUserTopics(String userId) {
         return learningClient.getUserTopics(userId);
+    }
+
+    @Transactional
+    public UserResponse createUser(UserCreateRequest request) {
+        String userId = keycloakAdminService.createUser(request);
+
+        User user = new User();
+        user.setUserId(userId);
+        user.setLevel(request.level() != null ? request.level() : "A1");
+
+        userRepository.save(user);
+        userCache.remove(userId);
+
+        return getUser(userId);
     }
 
     public UserResponse updateUser(String userId, UserUpdateRequest request, MultipartFile file) {

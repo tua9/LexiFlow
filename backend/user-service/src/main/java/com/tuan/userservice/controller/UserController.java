@@ -1,11 +1,13 @@
 package com.tuan.userservice.controller;
 
+import com.tuan.userservice.dto.UserCreateRequest;
 import com.tuan.userservice.dto.UserResponse;
 import com.tuan.userservice.dto.UserUpdateRequest;
 import com.tuan.userservice.model.TopicResponse;
 import com.tuan.userservice.service.CurrentUserService;
 import com.tuan.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -52,6 +54,11 @@ public class UserController {
 //            @RequestPart(value = "file", required = false) MultipartFile file) {
 //        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(request, file));
 //    }
+
+    @PostMapping
+    public ResponseEntity<UserResponse> createUser(@RequestBody UserCreateRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(request));
+    }
 
     @DeleteMapping("{userId}")
     public Boolean deleteUser(@PathVariable String userId) {
