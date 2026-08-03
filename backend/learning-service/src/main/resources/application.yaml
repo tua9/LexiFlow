@@ -1,7 +1,9 @@
 server:
-  port: 1004
+  port: 1001
 
 spring:
+  profiles:
+    active: local
   application:
     name: learning-service
   datasource:
@@ -9,11 +11,6 @@ spring:
     username: neondb_owner
     password: npg_lsA4k2JozKCt
     driver-class-name: org.postgresql.Driver
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:1111/eureka
 
 logging:
   level:

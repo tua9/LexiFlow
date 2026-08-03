@@ -1,0 +1,11 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/master
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:1111/eureka

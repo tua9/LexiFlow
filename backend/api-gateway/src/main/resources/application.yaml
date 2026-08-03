@@ -4,44 +4,35 @@ server:
 spring:
   application:
     name: api-gateway
-
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/realms/master
+  profiles:
+    active: local
 
   cloud:
     gateway:
-      # Định tuyến chuẩn của Spring Boot mới (Thêm server.webflux)
       server:
         webflux:
           routes:
-            - id: cloudinary-service-1
+            - id: cloudinary-service
               uri: lb://cloudinary-service
               predicates:
                 - Path=/cloudinary/**
-            - id: user-service-1
+
+            - id: user-service
               uri: lb://user-service
               predicates:
                 - Path=/api/v1/users/**,/api/v1/roles/**
-            - id: auth-service-1
+
+            - id: auth-service
               uri: lb://auth-service
               predicates:
                 - Path=/api/v1/public/auth/**
-            - id: learning-service-1
+
+            - id: learning-service
               uri: lb://learning-service
               predicates:
                 - Path=/api/v1/topics/**,/api/v1/vocabularies/**
 
-      # Cơ chế tự quét và map tên dịch vụ từ Eureka
     discovery:
       locator:
         enabled: true
         lower-case-service-id: true
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:1111/eureka
-

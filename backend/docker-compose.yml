@@ -1,24 +1,104 @@
 version: "3.9"
 
 services:
-  keycloak:
-    build: .
-
-    container_name: keycloak
-
+  user-db:
+    image: postgres:17
+    container_name: user-db
+    environment:
+      POSTGRES_DB: user-service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
     ports:
-      - "8080:8080"
+      - "5433:5432"
+    volumes:
+      - user-db-data:/var/lib/postgresql/data
+
+  learning-db:
+    image: postgres:17
+    container_name: learning-db
+    environment:
+      POSTGRES_DB: learning-service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5434:5432"
+    volumes:
+      - learning-db-data:/var/lib/postgresql/data
+
+  eureka:
+    build:
+      context: ./eureka-server
 
     environment:
-      KEYCLOAK_ADMIN: admin1
-      KEYCLOAK_ADMIN_PASSWORD: admin1
+      SPRING_PROFILES_ACTIVE: docker
 
-      KC_DB: dev-file
+    container_name: eureka
 
-    volumes:
-      - keycloak-data:/opt/keycloak/data
+    ports:
+      - "1111:1111"
 
-    restart: unless-stopped
+  gateway:
+    build:
+      context: ./api-gateway
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: gateway
+
+    ports:
+      - "2222:2222"
+
+    depends_on:
+      - eureka
+
+  user-service:
+    build:
+      context: ./user-service
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: user-service
+
+    depends_on:
+      - user-db
+      - eureka
+
+    ports:
+      - "8002:1002"
+
+  learning-service:
+    build:
+      context: ./learning-service
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: learning-service
+
+    depends_on:
+      - learning-db
+      - eureka
+
+    ports:
+      - "8001:1001"
+
+  cloudinary-service:
+    build:
+      context: ./cloudinary-service
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: cloudinary-service
+
+    depends_on:
+      - eureka
+
+    ports:
+      - "8003:1003"
 
 volumes:
-  keycloak-data:
+  user-db-data:
+  learning-db-data:

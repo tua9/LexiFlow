@@ -1,15 +1,16 @@
+server:
+  port: 1111
+
 spring:
   application:
     name: eureka-server
+  profiles:
+    active: local
 
-server:
-  port: 1111
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-    service-url:
-      defaultZone: http://localhost:1111/eureka/
     registry-fetch-interval-seconds: 5
 
   instance:

@@ -1,0 +1,7 @@
+server:
+  port: 1001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:1111/eureka
