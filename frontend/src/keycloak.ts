@@ -1,7 +1,7 @@
 import Keycloak from 'keycloak-js';
 
 const keycloak = new Keycloak({
-  url: 'https://keycloak-production-85d0.up.railway.app',
+  url: 'http://localhost:8080', //'https://keycloak-production-85d0.up.railway.app
   realm: 'myrealm',
   clientId: 'myclient',
 });
