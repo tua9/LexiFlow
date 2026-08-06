@@ -44,7 +44,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
 
-    container_name: gateway
+    container_name: api-gateway
 
     ports:
       - "4444:2222"
