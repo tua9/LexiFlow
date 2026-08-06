@@ -17,6 +17,12 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:1111/eureka}
+#      defaultZone: ${EUREKA_URL:https://eureka-server-pkf8.onrender.com/eureka}
+  instance:
+    prefer-ip-address: false
+    hostname: ${RENDER_EXTERNAL_HOSTNAME:localhost}
+    secure-port-enabled: true
+    non-secure-port-enabled: false
 
 keycloak:
   server-url: https://keycloak-production-85d0.up.railway.app

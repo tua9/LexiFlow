@@ -1,7 +1,7 @@
 spring:
   security:
     oauth2:
-      resourceserver:
+      resource server:
         jwt:
           issuer-uri: https://keycloak-production-85d0.up.railway.app/realms/myrealm
 
@@ -9,3 +9,4 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:1111/eureka}
+  
