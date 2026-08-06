@@ -7,7 +7,7 @@ import type { User } from '../types/user';
 interface UserProfileModalProps {
     open: boolean;
     onClose: () => void;
-    profile: UserProfile;
+    profile: any;
     onSave: ({ id, data }: { id: string, data: FormData }) => Promise<User> | void;
 }
 
