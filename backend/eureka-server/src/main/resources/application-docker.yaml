@@ -1,0 +1,6 @@
+server:
+  port: 1111
+
+eureka:
+  client:
+      defaultZone: http://localhost:1111/eureka

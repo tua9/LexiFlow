@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +29,8 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class UserService {
-
+    @Value("${keycloak.realm}")
+    private String realm;
     private final UserRepository userRepository;
 
     private final RoleService roleService;
@@ -129,8 +131,8 @@ public class UserService {
 
     private UserResponse mergeToUserResponse(User user, UserRepresentation userKeycloak) {
         UserResponse userResponse = userMapper.toUserResponse(user);
-        enrichWithKeycloak(userResponse);
-
+        UserResponse resultGetUserKeycloak = enrichWithKeycloak(userResponse);
+        if (resultGetUserKeycloak == null) return null;
         String roles = roleService.getUserRoles(user.getId());
         userResponse.setRole(roles);
 
@@ -138,30 +140,35 @@ public class UserService {
     }
 
     private UserResponse enrichWithKeycloak(UserResponse userResponse) {
-        UserRepresentation kcUser = getKeycloakUser(userResponse.getUserId());
-        List<RoleRepresentation> realmRolesList = keycloak.realm("master")
-                .users()
-                .get(userResponse.getUserId())
-                .roles()
-                .realmLevel()
-                .listAll();
+        try {
+            UserRepresentation kcUser = getKeycloakUser(userResponse.getUserId());
+            List<RoleRepresentation> realmRolesList = keycloak.realm(realm)
+                    .users()
+                    .get(userResponse.getUserId())
+                    .roles()
+                    .realmLevel()
+                    .listAll();
 
-        String roles = realmRolesList.stream()
-                .map(RoleRepresentation::getName)
-                .collect(Collectors.joining(" "));
+            String roles = realmRolesList.stream()
+                    .map(RoleRepresentation::getName)
+                    .collect(Collectors.joining(" "));
 
-        userResponse.setFirstname(kcUser.getFirstName());
-        userResponse.setLastname(kcUser.getLastName());
-        userResponse.setEmail(kcUser.getEmail());
-        userResponse.setRole(roles);
+            userResponse.setFirstname(kcUser.getFirstName());
+            userResponse.setLastname(kcUser.getLastName());
+            userResponse.setEmail(kcUser.getEmail());
+            userResponse.setRole(roles);
 
-        return userResponse;
+            return userResponse;
+        } catch (Exception e) {
+            System.out.println(e.getStackTrace());
+            return null;
+        }
     }
 
     private UserRepresentation getKeycloakUser(String userId) {
         return userCache.computeIfAbsent(userId, id -> {
             try {
-                return keycloak.realm("master").users().get(id).toRepresentation();
+                return keycloak.realm(realm).users().get(id).toRepresentation();
             } catch (Exception e) {
                 return new UserRepresentation(); // fallback rỗng
             }

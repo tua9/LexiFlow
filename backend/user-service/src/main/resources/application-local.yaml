@@ -11,7 +11,7 @@ spring:
     oauth2:
       resource-server:
         jwt:
-          issuer-uri: ${keycloak.server-url}/realms/master
+          issuer-uri: ${keycloak.server-url}/realms/${keycloak.realm}
 
 eureka:
   client:
@@ -19,9 +19,9 @@ eureka:
       defaultZone: http://localhost:1111/eureka
 
 keycloak:
-  server-url: http://localhost:8080
+  server-url: https://keycloak-production-85d0.up.railway.app
   admin-realm: master
-  realm: master
+  realm: myrealm
   client-id: admin-cli
   username: admin1
   password: admin1

@@ -1,29 +1,29 @@
 version: "3.9"
 
 services:
-  user-db:
-    image: postgres:17
-    container_name: user-db
-    environment:
-      POSTGRES_DB: user-service
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-    ports:
-      - "5433:5432"
-    volumes:
-      - user-db-data:/var/lib/postgresql/data
+  # user-db:
+  #   image: postgres:17
+  #   container_name: user-db
+  #   environment:
+  #     POSTGRES_DB: user-service
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: 123456
+  #   ports:
+  #     - "5433:5432"
+  #   volumes:
+  #     - user-db-data:/var/lib/postgresql/data
 
-  learning-db:
-    image: postgres:17
-    container_name: learning-db
-    environment:
-      POSTGRES_DB: learning-service
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-    ports:
-      - "5434:5432"
-    volumes:
-      - learning-db-data:/var/lib/postgresql/data
+  # learning-db:
+  #   image: postgres:17
+  #   container_name: learning-db
+  #   environment:
+  #     POSTGRES_DB: learning-service
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: 123456
+  #   ports:
+  #     - "5434:5432"
+  #   volumes:
+  #     - learning-db-data:/var/lib/postgresql/data
 
   eureka:
     build:
@@ -35,7 +35,7 @@ services:
     container_name: eureka
 
     ports:
-      - "1111:1111"
+      - "3333:1111"
 
   gateway:
     build:
@@ -47,7 +47,7 @@ services:
     container_name: gateway
 
     ports:
-      - "2222:2222"
+      - "4444:2222"
 
     depends_on:
       - eureka
@@ -62,7 +62,6 @@ services:
     container_name: user-service
 
     depends_on:
-      - user-db
       - eureka
 
     ports:
@@ -78,7 +77,6 @@ services:
     container_name: learning-service
 
     depends_on:
-      - learning-db
       - eureka
 
     ports:

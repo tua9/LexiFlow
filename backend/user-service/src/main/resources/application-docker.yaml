@@ -3,15 +3,15 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://user-db:5432/user-service
-    username: postgres
-    password: 123456
+    url: jdbc:postgresql://ep-jolly-lab-az27jf1l-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_kOiC2Jj1cZmK
 
   security:
     oauth2:
       resource-server:
         jwt:
-          issuer-uri: ${keycloak.server-url}/realms/master
+          issuer-uri: ${keycloak.server-url}/realms/${keycloak.realm}
 
 eureka:
   client:
@@ -19,9 +19,9 @@ eureka:
       defaultZone: http://eureka:1111/eureka
 
 keycloak:
-  server-url: http://keycloak:8080
+  server-url: https://keycloak-production-85d0.up.railway.app
   admin-realm: master
-  realm: master
+  realm: myrealm
   client-id: admin-cli
   username: admin1
   password: admin1

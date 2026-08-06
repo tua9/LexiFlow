@@ -49,4 +49,6 @@ spring:
         enabled: true
         lower-case-service-id: true
 
-
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
