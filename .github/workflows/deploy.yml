@@ -88,4 +88,4 @@ jobs:
 
             docker compose ps
 
-            docker image prune -f
+            docker image prune -a -f
