@@ -4,23 +4,18 @@ server:
 spring:
   application:
     name: api-gateway
+
   profiles:
     active: local
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://keycloak-production-85d0.up.railway.app/realms/myrealm
+
   cloud:
     gateway:
-#      globalcors:
-#        cors-configurations:
-#          '[/**]':
-#            allowedOrigins: "https://lexiflow-fe.netlify.app/"
-#            allowedMethods:
-#              - GET
-#              - POST
-#              - PUT
-#              - DELETE
-#              - OPTIONS
-#            allowedHeaders: "*"
-#            allowCredentials: true
       server:
         webflux:
           routes:

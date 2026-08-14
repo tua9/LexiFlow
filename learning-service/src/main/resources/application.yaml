@@ -15,3 +15,7 @@ spring:
 logging:
   level:
     org.springframework.web: DEBUG
+
+eureka:
+  instance:
+    prefer-ip-address: false

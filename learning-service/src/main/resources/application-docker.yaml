@@ -1,9 +1,5 @@
-server:
-  port: 1001
-
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://eureka-server:1111/eureka}
-  instance:
-    prefer-ip-address: false
+

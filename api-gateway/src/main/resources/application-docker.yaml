@@ -1,10 +1,3 @@
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: https://keycloak-production-85d0.up.railway.app/realms/myrealm
-
 eureka:
   client:
     service-url:
