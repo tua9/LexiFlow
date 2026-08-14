@@ -1,0 +1,11 @@
+server:
+  port: 1003
+spring:
+  application:
+    name: cloudinary-service
+
+  profiles:
+    active: local
+
+cloudinary:
+  url: cloudinary://787175684984725:BSQbdSDoWhKel9Mk11ac1noB0uc@tuan89-cloudinary

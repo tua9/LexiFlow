@@ -1,0 +1,17 @@
+server:
+  port: 1001
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: learning-service
+  datasource:
+    url: jdbc:postgresql://ep-late-math-az6048dt-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+    username: neondb_owner
+    password: npg_lsA4k2JozKCt
+    driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    org.springframework.web: DEBUG

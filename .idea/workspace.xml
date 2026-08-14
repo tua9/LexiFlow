@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9aa901ac-acec-4c99-a2c3-d61de9984e46" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="backend" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000074207683365" />
+      <entry key="MS500" value="1.0942170379330414" />
+      <entry key="S2" value="1.6454009908583687" />
+      <entry key="S5" value="2.4572484081725796" />
+      <entry key="S10" value="3.265773138869182" />
+      <entry key="S30" value="4.259394628402216" />
+      <entry key="S60" value="4.603688780260764" />
+      <entry key="M2" value="4.795114557348656" />
+      <entry key="M5" value="5.105496246262912" />
+      <entry key="M10" value="6.582696321058419" />
+      <entry key="M15" value="8.301517974747949" />
+      <entry key="M30" value="11.819357852827178" />
+      <entry key="H1" value="15.483446225602153" />
+      <entry key="H2" value="23.876327424708947" />
+      <entry key="H4" value="40.72127684761494" />
+      <entry key="D1" value="89.86006900031686" />
+      <entry key="W1" value="166.0478587657981" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="3.672253564596373E-102" />
+      <entry key="MS500" value="5.164287218535873E-21" />
+      <entry key="S2" value="9.20688458838661E-6" />
+      <entry key="S5" value="0.012870280457886664" />
+      <entry key="S10" value="0.1559931049343469" />
+      <entry key="S30" value="0.8489088422236359" />
+      <entry key="S60" value="1.301917528292522" />
+      <entry key="M2" value="1.613430125093024" />
+      <entry key="M5" value="1.9057461305092478" />
+      <entry key="M10" value="2.506457506749367" />
+      <entry key="M15" value="3.145798579066907" />
+      <entry key="M30" value="4.442803847391401" />
+      <entry key="H1" value="6.119782610046775" />
+      <entry key="H2" value="11.410775321439706" />
+      <entry key="H4" value="22.567743083787988" />
+      <entry key="D1" value="51.459330327828226" />
+      <entry key="W1" value="81.96785711280917" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9265880630056099" />
+      <entry key="MS500" value="1.0010732915547211" />
+      <entry key="S2" value="1.4432526171864444" />
+      <entry key="S5" value="2.329833769800938" />
+      <entry key="S10" value="3.3210547561580093" />
+      <entry key="S30" value="5.051224598659584" />
+      <entry key="S60" value="5.870681519481976" />
+      <entry key="M2" value="6.388981470003472" />
+      <entry key="M5" value="7.001953100751412" />
+      <entry key="M10" value="9.08114530666211" />
+      <entry key="M15" value="11.439397885903892" />
+      <entry key="M30" value="16.25556915984453" />
+      <entry key="H1" value="21.59854634638456" />
+      <entry key="H2" value="35.283227195763274" />
+      <entry key="H4" value="63.28556596945772" />
+      <entry key="D1" value="141.3181263663642" />
+      <entry key="W1" value="248.01541604324515" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3FvnrT9gp2QUxF6p1xrbzrjtPyp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.Build backend.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.BackendApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/camap/Earth/source_code/Projects/ELA/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9aa901ac-acec-4c99-a2c3-d61de9984e46" name="Changes" comment="" />
+      <created>1782964609569</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1782964609569</updated>
+      <workItem from="1782964610582" duration="32918000" />
+      <workItem from="1783389822503" duration="5234000" />
+      <workItem from="1783407460481" duration="44000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

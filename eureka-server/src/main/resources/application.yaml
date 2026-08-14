@@ -1,0 +1,9 @@
+server:
+  port: 1111
+
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    active: local
+

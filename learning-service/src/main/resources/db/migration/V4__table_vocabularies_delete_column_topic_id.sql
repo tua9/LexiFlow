@@ -1,0 +1,1 @@
+ALTER TABLE vocabularies DROP COLUMN topic_id CASCADE;

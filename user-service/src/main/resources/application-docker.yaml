@@ -1,0 +1,29 @@
+server:
+  port: 1002
+
+spring:
+  datasource:
+    url: jdbc:postgresql://ep-jolly-lab-az27jf1l-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_kOiC2Jj1cZmK
+
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: ${keycloak.server-url}/realms/${keycloak.realm}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://eureka:1111/eureka}
+  instance:
+    prefer-ip-address: false
+
+keycloak:
+  server-url: https://keycloak-production-85d0.up.railway.app
+  admin-realm: master
+  realm: myrealm
+  client-id: admin-cli
+  username: admin1
+  password: admin1

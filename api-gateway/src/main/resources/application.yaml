@@ -1,0 +1,54 @@
+server:
+  port: 2222
+
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: local
+
+  cloud:
+    gateway:
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "https://lexiflow-fe.netlify.app/"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - PUT
+#              - DELETE
+#              - OPTIONS
+#            allowedHeaders: "*"
+#            allowCredentials: true
+      server:
+        webflux:
+          routes:
+            - id: cloudinary-service
+              uri: lb://cloudinary-service
+              predicates:
+                - Path=/cloudinary/**
+
+            - id: user-service
+              uri: lb://user-service
+              predicates:
+                - Path=/api/v1/users/**,/api/v1/roles/**
+
+            - id: auth-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/api/v1/public/auth/**
+
+            - id: learning-service
+              uri: lb://learning-service
+              predicates:
+                - Path=/api/v1/topics/**,/api/v1/vocabularies/**
+
+    discovery:
+      locator:
+        enabled: true
+        lower-case-service-id: true
+
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5

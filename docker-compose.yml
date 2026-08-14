@@ -1,0 +1,100 @@
+services:
+  # user-db:
+  #   image: postgres:17
+  #   container_name: user-db
+  #   environment:
+  #     POSTGRES_DB: user-service
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: 123456
+  #   ports:
+  #     - "5433:5432"
+  #   volumes:
+  #     - user-db-data:/var/lib/postgresql/data
+
+  # learning-db:
+  #   image: postgres:17
+  #   container_name: learning-db
+  #   environment:
+  #     POSTGRES_DB: learning-service
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: 123456
+  #   ports:
+  #     - "5434:5432"
+  #   volumes:
+  #     - learning-db-data:/var/lib/postgresql/data
+
+  eureka:
+    build:
+      context: ./eureka-server
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: eureka-server
+
+    ports:
+      - "3333:1111"
+
+  gateway:
+    build:
+      context: ./api-gateway
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: api-gateway
+
+    ports:
+      - "4444:2222"
+
+    depends_on:
+      - eureka
+
+  user-service:
+    build:
+      context: ./user-service
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: user-service
+
+    depends_on:
+      - eureka
+
+    ports:
+      - "8002:1002"
+
+  learning-service:
+    build:
+      context: ./learning-service
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: learning-service
+
+    depends_on:
+      - eureka
+
+    ports:
+      - "8001:1001"
+
+  cloudinary-service:
+    build:
+      context: ./cloudinary-service
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    container_name: cloudinary-service
+
+    depends_on:
+      - eureka
+
+    ports:
+      - "8003:1003"
+
+volumes:
+  user-db-data:
+  learning-db-data:
