@@ -16,28 +16,26 @@ spring:
 
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
-            - id: cloudinary-service
-              uri: lb://cloudinary-service
-              predicates:
-                - Path=/cloudinary/**
+      routes:
+        - id: cloudinary-service
+          uri: lb://cloudinary-service
+          predicates:
+            - Path=/cloudinary/**
 
-            - id: user-service
-              uri: lb://user-service
-              predicates:
-                - Path=/api/v1/users/**,/api/v1/roles/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/v1/users/**,/api/v1/roles/**, /api/v1/test-results/**
 
-            - id: auth-service
-              uri: lb://auth-service
-              predicates:
-                - Path=/api/v1/public/auth/**
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/v1/public/auth/**
 
-            - id: learning-service
-              uri: lb://learning-service
-              predicates:
-                - Path=/api/v1/topics/**,/api/v1/vocabularies/**
+        - id: learning-service
+          uri: lb://learning-service
+          predicates:
+            - Path=/api/v1/topics/**,/api/v1/vocabularies/**
 
     discovery:
       locator:
@@ -47,3 +45,8 @@ spring:
 eureka:
   client:
     registry-fetch-interval-seconds: 5
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.loadbalancer: DEBUG
