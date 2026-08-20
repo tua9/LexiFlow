@@ -11,6 +11,15 @@ spring:
     username: neondb_owner
     password: npg_lsA4k2JozKCt
     driver-class-name: org.postgresql.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak.server-url}/realms/${keycloak.realm}
+
+keycloak:
+  server-url: https://keycloak-production-85d0.up.railway.app
+  realm: myrealm
 
 logging:
   level:
